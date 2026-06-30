@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asad Akbar — AI Engineer</title>
+    <meta name="description" content="Asad Akbar — AI Engineer specializing in Deep Learning, Computer Vision, NLP and 3D Reconstruction.">
+    
+    <!-- Styles & Fonts -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- 3D Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <!-- Background Video Container -->
+    <div id="video-container">
+        <video id="scroll-video" src="Videos/Vid-01.mp4" preload="auto" muted playsinline></video>
+        <div id="black-box"></div>
+    </div>
+
+    <!-- 3D Model Container -->
+    <div id="model-container">
+        <model-viewer src="Models/neuronal_cell_environment.glb" disable-zoom auto-rotate shadow-intensity="1" interaction-prompt="none">
+        </model-viewer>
+    </div>
+
+    <!-- Visual Effects -->
+    <div class="grain"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <svg class="thread-progress" viewBox="0 0 4 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="2" y1="0" x2="2" y2="100" class="thread-track"></line>
+        <line x1="2" y1="0" x2="2" y2="100" class="thread-fill"></line>
+    </svg>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#hero" class="nav-mark">AA<span class="nav-dot"></span></a>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta">Let's talk</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <p class="eyebrow mono">AI ENGINEER — ISLAMABAD, PAKISTAN</p>
+            <h1 class="hero-title">
+                Asad Akbar
+                <span class="hero-title-sub">Building Intelligence you can trust</span>
+            </h1>
+            
+            <div class="hero-desc" id="hero-desc">
+                <span class="word">Engineering</span>
+                <span class="word">systems</span>
+                <span class="word">that</span>
+                <span class="word">perceive,</span>
+                <span class="word">reason</span>
+                <span class="word">&amp;</span>
+                <span class="word">act</span>
+                <span class="word">for</span>
+                <span class="word">you.</span>
+            </div>
+            
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-glass">View projects</a>
+                <a href="Asad-Akbar-Resume.pdf" class="btn btn-glass" download>Download résumé ↓</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num mono">30%</span>
+                    <span class="stat-label">reduction in overall response time achieved by parallelizing hybrid RAG architectures.</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num mono">48+</span>
+                    <span class="stat-label">hours of production time saved generating complex 3D meshes for VR environments.</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num mono">5</span>
+                    <span class="stat-label">research &amp; production AI systems deployed across Finance, Healthcare, Logistics sectors.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-head">
+            <span class="section-num mono">01</span>
+            <h2>Selected projects</h2>
+        </div>
+
+        <div class="timeline">
+            <svg class="synapse-line" viewBox="0 0 2 1000" preserveAspectRatio="none" aria-hidden="true">
+                <line x1="1" y1="0" x2="1" y2="1000" class="synapse-track"/>
+                <line x1="1" y1="0" x2="1" y2="1000" class="synapse-fill"/>
+            </svg>
+
+            <article class="tl-item" data-node>
+                <div class="tl-node"><span class="tl-pulse"></span></div>
+                <div class="tl-card glass" data-tilt>
+                    <span class="tl-period mono">NOV 2025 — MAY 2026</span>
+                    <h3>RAG Systems Suite</h3>
+                    <p>A RAG restaurant analyzer and recommender agent, a personalized medical nurse assistant, and a demurrage invoice validator with continuous data ingestion. Parallelized mem0's hybrid memory architecture to fix its sequential querying bottleneck.</p>
+                    <div class="bento-tags" style="margin-top: 14px;">
+                        <span>Hybrid RAG</span><span>Mem0 architecture</span><span>2.5× speedup</span><span>−30% latency</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tl-item" data-node>
+                <div class="tl-node"><span class="tl-pulse"></span></div>
+                <div class="tl-card glass" data-tilt>
+                    <span class="tl-period mono">MAR 2025 — ACTIVE</span>
+                    <h3>Enhancing PathLDM</h3>
+                    <p>Extending the Pathology Latent Diffusion Model (Yellapragada et al., 2024) toward modern SOTA GANs with Macenko stain normalization — cutting resource cost while improving fidelity.</p>
+                    <div class="bento-tags" style="margin-top: 14px;">
+                        <span>Diffusion</span><span>GANs</span><span>Pathology</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tl-item" data-node>
+                <div class="tl-node"><span class="tl-pulse"></span></div>
+                <div class="tl-card glass" data-tilt>
+                    <span class="tl-period mono">FEB 2026</span>
+                    <h3>Urdu Story Generation Pipeline</h3>
+                    <p>A collaborative NLP framework using BPE tokenization and N-gram modelling for automated Urdu text generation, with a custom UrduPoint scraping pipeline for real-time content synthesis.</p>
+                    <div class="bento-tags" style="margin-top: 14px;">
+                        <span>BPE</span><span>N-grams</span><span>NLP</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tl-item" data-node>
+                <div class="tl-node"><span class="tl-pulse"></span></div>
+                <div class="tl-card glass" data-tilt>
+                    <span class="tl-period mono">JUN 2025 — AUG 2025</span> <h3>2D-3D Reconstruction Pipeline</h3>
+                    <p>Engineered a high-performance photogrammetry pipeline integrating Meshroom for node-based processing. Implemented custom C++ and OpenCL kernels to accelerate dense point cloud generation and mesh optimization, significantly reducing compute latency for complex environment reconstruction.</p>
+                    <div class="bento-tags" style="margin-top: 14px;">
+                        <span>C++</span><span>OpenCL</span><span>Meshroom</span><span>Point Clouds</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tl-item" data-node>
+                <div class="tl-node"><span class="tl-pulse"></span></div>
+                <div class="tl-card glass" data-tilt>
+                    <span class="tl-period mono">MAY 2025</span>
+                    <h3>Street Fighter II AI Agent</h3>
+                    <p>A neural-network agent trained for strategic, adaptive gameplay — reading opponent patterns and adjusting tactics in real time.</p>
+                    <div class="bento-tags" style="margin-top: 14px;">
+                        <span>Neural Networks</span><span>Game AI</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="section-head">
+            <span class="section-num mono">02</span>
+            <h2>Experience</h2>
+        </div>
+
+        <div class="bento">
+            <article class="bento-card glass bento-lg" data-tilt>
+                <span class="bento-date mono">SEP 2025 — PRESENT</span>
+                <h3>Quality Assurance Engineer</h3>
+                <span class="tl-org" style="margin-bottom: 8px; display:block; color:var(--cyan); font-size:1.05rem;">XI Pulse, Islamabad</span>
+                <p>Validating AR/VR digital twins in Unity for training and monitoring, ensuring AI stability and accuracy through rigorous performance testing. Integrated immersive twins into workflows, refining AI solutions across teams.</p>
+            </article>
+
+            <article class="bento-card glass" data-tilt>
+                <span class="bento-date mono">JAN 2026 — APR 2026</span>
+                <h3>Machine Learning Intern</h3>
+                <span class="tl-org" style="margin-bottom: 8px; display:block; color:var(--cyan); font-size:1.05rem;">IT-Solera, Islamabad</span>
+                <p>Optimized inference time and model accuracy for finance &amp; banking projects — rigorous validation protocols, hyperparameter tuning, and leaner inference code.</p>
+            </article>
+
+            <article class="bento-card glass" data-tilt>
+                <span class="bento-date mono">AUG 2025 — JAN 2026</span>
+                <h3>Lab Demonstrator</h3>
+                <span class="tl-org" style="margin-bottom: 8px; display:block; color:var(--cyan); font-size:1.05rem;">NUCES-FAST, Islamabad</span>
+                <p>Led weekly C++ labs, fostering an inclusive, collaborative environment that ensured student confidence and measurable concept mastery.</p>
+            </article>
+
+            <article class="bento-card glass" data-tilt>
+                <span class="bento-date mono">JUL 2025 — AUG 2025</span>
+                <h3>AI Research Intern</h3>
+                <span class="tl-org" style="margin-bottom: 8px; display:block; color:var(--cyan); font-size:1.05rem;">PROTECT Lab, NUCES-FAST</span>
+                <p>Engineered 2D-to-3D reconstruction workflows using Neural Radiance Fields and OpenCL — generating complex meshes for VR environments and saving weeks of manual production time.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <svg class="circuit-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g class="circuit-group">
+                <path class="circuit-path" d="M-50,150 L100,150 L200,50 L450,50 L500,100" />
+                <circle class="circuit-node" cx="500" cy="100" r="4" />
+                <path class="circuit-path" d="M1250,650 L1050,650 L950,750 L700,750 L650,700" />
+                <circle class="circuit-node" cx="650" cy="700" r="4" />
+                <path class="circuit-path" d="M150,850 L150,700 L250,600 L500,600 L550,550" />
+                <circle class="circuit-node" cx="550" cy="550" r="4" />
+                <path class="circuit-path" d="M850,-50 L850,150 L950,250 L1100,250 L1150,300" />
+                <circle class="circuit-node" cx="1150" cy="300" r="4" />
+                <path class="circuit-path" d="M-50,400 L150,400 L250,300 L500,300 L600,400 L800,400 L900,300 L1250,300" />
+            </g>
+        </svg>
+        
+        <div class="section-head center-stack">
+            <span class="section-num mono" style="margin-bottom: 10px;">03</span>
+            <h2>Tech Stack</h2>
+        </div>
+        <p class="section-subtext">Technologies and tools I use to build intelligent systems</p>
+
+        <div class="tech-grid">
+            <!-- Languages -->
+            <div class="tech-column" data-tilt>
+                <h3>Languages</h3>
+                <div class="tech-items-vertical">
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="SQL">
+                        <span>SQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI & ML -->
+            <div class="tech-column" data-tilt>
+                <h3>AI & ML</h3>
+                <div class="tech-items-vertical">
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-Learn">
+                        <span>Scikit-Learn</span>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-emoji">🤗</div>
+                        <span>HuggingFace</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data & Vision -->
+            <div class="tech-column" data-tilt>
+                <h3>Data & Vision</h3>
+                <div class="tech-items-vertical">
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="OpenCV">
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas">
+                        <span>Pandas</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy">
+                        <span>NumPy</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib">
+                        <span>Matplotlib</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="tech-column" data-tilt>
+                <h3>Tools</h3>
+                <div class="tech-items-vertical">
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
+                        <span>Git</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity" style="filter: invert(1);">
+                        <span>Unity 3D</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
+                        <span>Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Recognitions Section -->
+    <section id="education-recognitions" class="edu-rec">
+        <div class="section-head center-stack">
+            <span class="section-num mono" style="margin-bottom: 15px;">04</span>
+            <h2>Education & Recognitions</h2>
+        </div>
+
+        <div class="edu-rec-grid">
+            <div class="edu-card glass" data-tilt>
+                <div class="edu-card-header">
+                    <img src="Images/Img-02.png" alt="FAST Logo" class="fast-logo-img">
+                    <h3 class="edu-title">BS Artificial<br>Intelligence</h3>
+                </div>
+                
+                <div class="edu-image-container">
+                    <img src="Images/Img-01-New.png" alt="AI Brain Concept" class="edu-main-img">
+                </div>
+
+                <ul class="edu-details-list">
+                    <li><strong>CGPA:</strong> <span class="mono">3.87</span></li>
+                    <li><strong>Dean's List</strong> Recognition (x5)</li>
+                    <li><strong>Key Modules:</strong> Reinforcement Learning, Deep Learning, Computer Vision</li>
+                    <li><strong>Integrated Project:</strong> Neo-NPCs in 3D</li>
+                </ul>
+            </div>
+
+            <div class="edu-card glass" data-tilt>
+                <div class="edu-medal-icon">
+                    <img src="Images/Img-03.png" alt="Medals" class="medal-custom-img">
+                </div>
+                <h3 class="medal-title">Gold &amp; Silver<br>Medals</h3>
+                <p class="medal-desc">Consistent top-tier academic performance... five Dean's List honors.</p>
+            </div>
+
+            <div class="edu-card glass split-card" data-tilt>
+                <div class="ach-block">
+                    <img src="Images/Img-04.png" alt="FAIS Leadership" class="ach-custom-img">
+                    <h3>FAIS Leadership &amp; NESCOM Fellowship</h3>
+                    <p>Led technical projects, mentoring students in ethical AI initiatives (50+ members)</p>
+                    <span class="ach-date mono">MAR 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <img src="Images/Img-05.png" alt="Background Texture" class="contact-bg-img">
+        <div class="contact-glow"></div>
+        <span class="section-num mono center">05</span>
+        <h2>Let's build something that works.</h2>
+        <div class="contact-links">
+            <a href="mailto:asad.akbar0211@gmail.com" class="btn btn-glass">asad.akbar0211@gmail.com</a>
+            <a href="tel:+923339847370" class="btn btn-glass">(+92) 333 9847370</a>
+            <a href="https://www.linkedin.com/in/asad-akbar-" target="_blank" rel="noopener" class="btn btn-glass">LinkedIn ↗</a>
+        </div>
+        <footer>© 2026 Asad Akbar</footer>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
