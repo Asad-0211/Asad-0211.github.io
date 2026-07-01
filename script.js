@@ -40,6 +40,18 @@ const model1LeaveStart = 0.38;
 const model1LeaveEnd = 0.60;
 
 // ==========================================
+// --- 3. MODEL CONFIGURATION (MOBILE) ---
+// ==========================================
+/* ADJUST THESE VARIABLES to test fade/position on phones */
+const mobileModelFadeStart = 0.09; // Scroll % when fade starts
+const mobileModelFadeEnd = 0.13;   // Scroll % when fade completes
+const mobileModelLeaveStart = 0.38;// Scroll % when exit starts
+const mobileModelLeaveEnd = 0.60;  // Scroll % when exit completes
+const mobileModelStartY = 35;      // Start Y position (%)
+const mobileModelEndY = 50;        // Resting Y position (%)
+const mobileModelLeaveEndY = 60;  // Exit Y position (%)
+
+// ==========================================
 // --- INITIALIZATION ---
 // ==========================================
 video.addEventListener('loadedmetadata', () => {
@@ -69,13 +81,11 @@ window.addEventListener('scroll', () => {
 // --- RENDER LOOP (Animates Video and Model) ---
 // ==========================================
 function renderLoop() {
-    // 1. Smoothly Scrub Video
     currentTime += (targetTime - currentTime) * easing;
     if (Math.abs(targetTime - currentTime) > 0.01 && !video.seeking) {
         video.currentTime = currentTime;
     }
 
-    // 2. Fade out Video Container
     if (currentScrollFraction >= fadeStart) {
         let opacity = 1 - ((currentScrollFraction - fadeStart) / (fadeEnd - fadeStart));
         videoContainer.style.opacity = Math.max(0, Math.min(1, opacity));
@@ -83,42 +93,52 @@ function renderLoop() {
         videoContainer.style.opacity = 1;
     }
 
-    // 3. Model Entrance & Leave Logic
-    if (currentScrollFraction >= modelFadeStart) {
-        let currentY = modelStartY; 
+    const isMobile = window.innerWidth <= 900;
+
+    // Use active variables based on device screen size
+    const activeFadeStart = isMobile ? mobileModelFadeStart : modelFadeStart;
+    const activeFadeEnd = isMobile ? mobileModelFadeEnd : modelFadeEnd;
+    const activeLeaveStart = isMobile ? mobileModelLeaveStart : model1LeaveStart;
+    const activeLeaveEnd = isMobile ? mobileModelLeaveEnd : model1LeaveEnd;
+    const activeStartY = isMobile ? mobileModelStartY : modelStartY;
+    const activeEndY = isMobile ? mobileModelEndY : modelEndY;
+    const activeLeaveEndY = isMobile ? mobileModelLeaveEndY : modelLeaveEndY;
+
+    if (currentScrollFraction >= activeFadeStart) {
+        let currentY = activeStartY; 
         let modelOpacity = 0;
 
-        let entranceProgress = (currentScrollFraction - modelFadeStart) / (modelFadeEnd - modelFadeStart);
+        let entranceProgress = (currentScrollFraction - activeFadeStart) / (activeFadeEnd - activeFadeStart);
         entranceProgress = Math.max(0, Math.min(1, entranceProgress));
 
-        if (currentScrollFraction < model1LeaveStart) {
+        if (currentScrollFraction < activeLeaveStart) {
             modelOpacity = animateModel1Entrance ? entranceProgress : 1; 
-            currentY = modelStartY + ((modelEndY - modelStartY) * entranceProgress);
+            currentY = activeStartY + ((activeEndY - activeStartY) * entranceProgress);
         } else {
-            let leaveProgress = (currentScrollFraction - model1LeaveStart) / (model1LeaveEnd - model1LeaveStart);
+            let leaveProgress = (currentScrollFraction - activeLeaveStart) / (activeLeaveEnd - activeLeaveStart);
             leaveProgress = Math.max(0, Math.min(1, leaveProgress));
             modelOpacity = 1 - leaveProgress; 
-            currentY = modelEndY + ((modelLeaveEndY - modelEndY) * leaveProgress); 
+            currentY = activeEndY + ((activeLeaveEndY - activeEndY) * leaveProgress); 
         }
 
         modelContainer.style.opacity = modelOpacity;
 
-        let currentX = modelStartX + ((modelEndX - modelStartX) * entranceProgress);
-        let modelScale = 0.5 + (entranceProgress * 1.15);
+        let currentX = isMobile ? 50 : modelStartX + ((modelEndX - modelStartX) * entranceProgress);
+        let modelScale = isMobile ? (0.4 + (entranceProgress * 0.4)) : (0.5 + (entranceProgress * 1.15));
 
         modelContainer.style.left = `${currentX}%`;
         modelContainer.style.top = `${currentY}%`;
         modelContainer.style.transform = `translate(-50%, -50%) scale(${modelScale})`;
-
-        // Ensure the model remains untouchable at all times
         modelContainer.style.pointerEvents = 'none';
     } else {
-        // Reset Model state when above threshold
+        let resetX = isMobile ? 50 : modelStartX;
+        let resetScale = isMobile ? 0.4 : 0.5;
+        
         modelContainer.style.opacity = 0;
         modelContainer.style.pointerEvents = 'none';
-        modelContainer.style.left = `${modelStartX}%`;
+        modelContainer.style.left = `${resetX}%`;
         modelContainer.style.top = `50%`;
-        modelContainer.style.transform = `translate(-50%, -50%) scale(0.5)`;
+        modelContainer.style.transform = `translate(-50%, -50%) scale(${resetScale})`;
     }
 
     requestAnimationFrame(renderLoop);
@@ -180,6 +200,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.25 });
   revealTargets.forEach(el => io.observe(el));
+
+  // --- Mobile Hero Description Scroll Trigger ---
+  const mobileHeroDesc = document.querySelector('.hero-desc');
+  const heroDescObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          // Only apply this logic on mobile screens to protect desktop
+          if (window.innerWidth <= 900) {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('in-view'); // Animates IN
+              } else {
+                  entry.target.classList.remove('in-view'); // Animates OUT
+              }
+          }
+      });
+  }, { threshold: 0.2 }); // Triggers when 20% of the text container is visible
+
+  if (mobileHeroDesc) {
+      heroDescObserver.observe(mobileHeroDesc);
+  }
 
   // --- 3D Glass Tilt Effect ---
   const tiltCards = document.querySelectorAll('[data-tilt]');
