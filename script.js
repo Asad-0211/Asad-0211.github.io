@@ -24,8 +24,8 @@ const playbackSpeed = 3.5;
 // ==========================================
 // --- 2. MODEL 1 CONFIGURATION ---
 // ==========================================
-const modelFadeStart = 0.13;
-const modelFadeEnd = 0.27;
+const modelFadeStart = 0.11;
+const modelFadeEnd = 0.24;
 
 // X Positions (%)
 const modelStartX = 85; 
@@ -36,7 +36,7 @@ const modelStartY = 25;      // Vertical position when model starts fading in
 const modelEndY = 50;        // Vertical position when model is fully visible
 const modelLeaveEndY = -30;  // Vertical position when model scrolls away
 
-const model1LeaveStart = 0.4;
+const model1LeaveStart = 0.38;
 const model1LeaveEnd = 0.60;
 
 // ==========================================
@@ -104,7 +104,7 @@ function renderLoop() {
         modelContainer.style.opacity = modelOpacity;
 
         let currentX = modelStartX + ((modelEndX - modelStartX) * entranceProgress);
-        let modelScale = 0.5 + (entranceProgress * 1.2);
+        let modelScale = 0.5 + (entranceProgress * 1.15);
 
         modelContainer.style.left = `${currentX}%`;
         modelContainer.style.top = `${currentY}%`;
@@ -204,8 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   // --- Hero Content Sequencing ---
-  const textRevealStartScroll = 450;
-  const textRevealEndScroll = 1050; 
+  const textRevealStartScroll = 360;
+  const textRevealEndScroll = 930; 
 
   setTimeout(() => {
     const heroActions = document.querySelector('.hero-actions');
