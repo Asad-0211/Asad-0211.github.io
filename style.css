@@ -536,9 +536,14 @@ footer { margin-top: 90px; color: var(--ink-faint); font-size: .8rem; }
     #video-container { display: none !important; }
     #model-container { width: 100vw !important; height: 50vh !important; z-index: 0 !important; }
 
-    /* Hide the cursor glow on mobile */
+    /* 100% kill the glow on mobile */
     .cursor-glow {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     /* 2. Hero Section Restored & Stacked */
