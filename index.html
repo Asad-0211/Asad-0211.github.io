@@ -6,39 +6,32 @@
     <title>Asad Akbar — AI Engineer</title>
     <meta name="description" content="Asad Akbar — AI Engineer specializing in Deep Learning, Computer Vision, NLP and 3D Reconstruction.">
     
-    <!-- Styles & Fonts -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- 3D Model Viewer -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body>
-    <!-- Background Video Container -->
     <div id="video-container">
         <video id="scroll-video" src="Videos/Vid-01.mp4" preload="auto" muted playsinline></video>
         <div id="black-box"></div>
     </div>
 
-    <!-- 3D Model Container -->
     <div id="model-container">
-        <model-viewer src="Models/neuronal_cell_environment.glb" disable-zoom auto-rotate shadow-intensity="1" interaction-prompt="none">
+        <model-viewer src="Models/neuronal_cell_environment_draco.glb" disable-zoom auto-rotate shadow-intensity="1" interaction-prompt="none" loading="eager">
         </model-viewer>
     </div>
 
-    <!-- Visual Effects -->
     <div class="grain"></div>
     <div class="cursor-glow"></div>
 
-    <!-- Scroll Progress Indicator -->
     <svg class="thread-progress" viewBox="0 0 4 100" preserveAspectRatio="none" aria-hidden="true">
         <line x1="2" y1="0" x2="2" y2="100" class="thread-track"></line>
         <line x1="2" y1="0" x2="2" y2="100" class="thread-fill"></line>
     </svg>
 
-    <!-- Navigation -->
     <nav class="nav">
         <a href="#hero" class="nav-mark">AA<span class="nav-dot"></span></a>
         <div class="nav-links">
@@ -50,7 +43,6 @@
         <a href="#contact" class="nav-cta">Let's talk</a>
     </nav>
 
-    <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content">
             <p class="eyebrow mono">AI ENGINEER — ISLAMABAD, PAKISTAN</p>
@@ -93,7 +85,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="section-head">
             <span class="section-num mono">01</span>
@@ -167,7 +158,6 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="section-head">
             <span class="section-num mono">02</span>
@@ -205,7 +195,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
         <svg class="circuit-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <g class="circuit-group">
@@ -228,7 +217,6 @@
         <p class="section-subtext">Technologies and tools I use to build intelligent systems</p>
 
         <div class="tech-grid">
-            <!-- Languages -->
             <div class="tech-column" data-tilt>
                 <h3>Languages</h3>
                 <div class="tech-items-vertical">
@@ -251,7 +239,6 @@
                 </div>
             </div>
 
-            <!-- AI & ML -->
             <div class="tech-column" data-tilt>
                 <h3>AI & ML</h3>
                 <div class="tech-items-vertical">
@@ -274,7 +261,6 @@
                 </div>
             </div>
 
-            <!-- Data & Vision -->
             <div class="tech-column" data-tilt>
                 <h3>Data & Vision</h3>
                 <div class="tech-items-vertical">
@@ -297,7 +283,6 @@
                 </div>
             </div>
 
-            <!-- Tools -->
             <div class="tech-column" data-tilt>
                 <h3>Tools</h3>
                 <div class="tech-items-vertical">
@@ -322,7 +307,6 @@
         </div>
     </section>
 
-    <!-- Education & Recognitions Section -->
     <section id="education-recognitions" class="edu-rec">
         <div class="section-head center-stack">
             <span class="section-num mono" style="margin-bottom: 15px;">04</span>
@@ -367,7 +351,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <img src="Images/Img-05.png" alt="Background Texture" class="contact-bg-img">
         <div class="contact-glow"></div>
