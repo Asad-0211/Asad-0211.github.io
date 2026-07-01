@@ -536,6 +536,11 @@ footer { margin-top: 90px; color: var(--ink-faint); font-size: .8rem; }
     #video-container { display: none !important; }
     #model-container { width: 100vw !important; height: 50vh !important; z-index: 0 !important; }
 
+    /* Hide the cursor glow on mobile */
+    .cursor-glow {
+        display: none !important;
+    }
+
     /* 2. Hero Section Restored & Stacked */
     .hero {
         padding-top: 25vh !important;
