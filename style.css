@@ -657,7 +657,7 @@ footer { margin-top: 90px; color: var(--ink-faint); font-size: .8rem; }
 
     /* 4. Tech Stack Row-Wise */
     .tech-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
-    .tech-column { padding: 15px !important; transform: none !important; opacity: 1 !important; }
+    .tech-column { padding: 10px !important; transform: none !important; opacity: 1 !important; }
     .tech-column h3 { margin-bottom: 15px !important; }
     .tech-items-vertical { 
         display: flex !important;
