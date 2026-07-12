@@ -534,7 +534,7 @@ footer { margin-top: 90px; color: var(--ink-faint); font-size: .8rem; }
     /* 1. Reset Body Height & Hide Video */
     body { height: auto !important; } /* Removes massive blank spaces */
     #video-container { display: none !important; }
-    #model-container { width: 100vw !important; height: 50vh !important; z-index: 0 !important; }
+    #model-container { display: none !important; }
 
     /* 100% kill the glow on mobile */
     .cursor-glow {
