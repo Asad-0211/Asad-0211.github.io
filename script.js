@@ -76,6 +76,18 @@ const mobileModelLeaveEndY = 60;
 // ==========================================
 // --- INITIALIZATION ---
 // ==========================================
+
+// The video is a desktop-only visual flourish (already hidden via CSS on
+// mobile/edge). Its src used to be set directly in the HTML, so the
+// browser downloaded it immediately on parse regardless of device. Now
+// the HTML only carries data-src, and we only assign the real src (and
+// therefore only ever trigger a download) when the device isn't mobile.
+if (!isMobile) {
+    video.preload = 'auto';
+    video.src = video.dataset.src;
+    video.load();
+}
+
 video.addEventListener('loadedmetadata', () => {
     video.pause();
     video.currentTime = 0;
@@ -87,11 +99,13 @@ video.addEventListener('loadedmetadata', () => {
 // doesn't change what the user sees — it just stops it competing with
 // fonts/video for bandwidth during first paint on slow connections.
 function loadModel() {
+    if (isMobile) return; // never fetch the ~7MB model on mobile/edge
     if (modelViewer && !modelViewer.getAttribute('src')) {
         const src = modelViewer.dataset.src;
         if (src) modelViewer.setAttribute('src', src);
     }
 }
+
 if ('requestIdleCallback' in window) {
     window.addEventListener('load', () => requestIdleCallback(loadModel, { timeout: 2000 }));
 } else {
